@@ -1,0 +1,121 @@
+1. WAP to print “Hello World” using C++
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello World" << endl;
+    return 0;
+}
+
+2. What is OOP? List OOP concepts
+
+Object-Oriented Programming (OOP) is a programming  based on the concept of objects, which can contain data, in the form of fields and code.
+
+The main concepts of OOP are:
+Encapsulation
+Inheritance
+Polymorphism 
+Abstraction 
+
+3. What is the difference between OOP and POP?
+
+OOP (Object-Oriented Programming) focuses on the objects that developers want to manipulate rather than the logic required to manipulate them. This approach to programming is well-suited for programs that are large, complex, and actively updated or maintained.
+POP (Procedure-Oriented Programming) focuses on functions or procedures that operate on the data. The data is generally not given as much importance as the functions. POP is generally used for relatively small and simple programs that are not expected to be updated frequently.
+
+
+1. WAP to create simple calculator using class
+
+#include <iostream>
+using namespace std;
+
+class Calculator {
+public:
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    int subtract(int a, int b) {
+        return a - b;
+    }
+
+    int multiply(int a, int b) {
+        return a * b;
+    }
+
+    double divide(int a, int b) {
+        if (b == 0) {
+            cout << "Error: Division by zero" << endl;
+            return 0;
+        }
+        return static_cast<double>(a) / b;
+    }
+
+    void calculate() {
+        cout << "Addition of 5 and 3: " << add(5, 3) << endl;
+        cout << "Subtraction of 5 and 3: " << subtract(5, 3) << endl;
+        cout << "Multiplication of 5 and 3: " << multiply(5, 3) << endl;
+        cout << "Division of 5 by 3: " << divide(5, 3) << endl;
+    }
+};
+
+int main() {
+    Calculator calc;
+    calc.calculate();     return 0;
+}
+
+
+
+2. Define a class to represent a bank account. Include the following members:
+-Data Member:
+-Name of the depositor
+-Account Number
+-Type of Account
+-Balance amount in the account
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class BankAccount {
+public:
+    string depositorName;
+    string accountNumber;
+    string accountType;
+    double balance;
+
+    void deposit(double amount) {
+        balance += amount;
+        cout << "Deposited: $" << amount << " New Balance: $" << balance << endl;
+    }
+
+    void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            cout << "Withdrawn: $" << amount << " New Balance: $" << balance << endl;
+        } else {
+            cout << "Insufficient funds." << endl;
+        }
+    }
+
+    void display() {
+        cout << "Account Name: " << depositorName << endl
+             << "Account Number: " << accountNumber << endl
+             << "Account Type: " << accountType << endl
+             << "Current Balance: $" << balance << endl;
+    }
+};
+
+int main() {
+    BankAccount account;
+    account.depositorName = "Krishna Patel";
+    account.accountNumber = "5656548";
+    account.accountType = "Savings";
+    account.balance = 500.00;
+    
+    account.display();
+    account.deposit(200.00);
+    account.withdraw(100.00);
+    
+    return 0;
+}
